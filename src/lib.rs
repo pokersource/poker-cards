@@ -128,8 +128,8 @@ impl Ord for Rank {
 /// Playing card with rank and suit.
 #[derive(Debug, Clone, Copy, Default)]
 pub struct Card {
-    rank: Rank,
-    suit: Suit,
+    pub rank: Rank,
+    pub suit: Suit,
 }
 
 impl TryFrom<&str> for Card {
