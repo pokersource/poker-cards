@@ -1,0 +1,11 @@
+# Copyright © 2019 The Pokersource Project
+# [This work is made available under the "Affero GPL v3".]
+# Please see the file LICENSE in the source
+# distribution of this software for license terms.
+
+[package]
+edition = "2018"
+name = "poker"
+version = "1.1.0"
+
+[dependencies]
