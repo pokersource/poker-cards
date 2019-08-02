@@ -6,8 +6,8 @@
 //! Playing cards, as used in Poker.
 
 use std::cmp::Ordering;
-use Ordering::*;
 use std::convert::TryFrom;
+use Ordering::*;
 
 /// Suit of a card.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -78,7 +78,7 @@ impl From<Rank> for u8 {
 
 impl TryFrom<&str> for Rank {
     type Error = String;
-        
+
     fn try_from(s: &str) -> Result<Rank, String> {
         match s {
             "A" => Ok(Ace),
@@ -103,7 +103,7 @@ impl TryFrom<&str> for Rank {
                     }
                 }
                 Err(format!("invalid rank {}", s))
-            },
+            }
         }
     }
 }
@@ -114,7 +114,7 @@ impl PartialOrd<Rank> for Rank {
             (Ace, Ace) => Some(Equal),
             (Ace, _) => None,
             (_, Ace) => None,
-            (c1, c2) => Some(u8::from(c1).cmp(&u8::from(c2)))
+            (c1, c2) => Some(u8::from(c1).cmp(&u8::from(c2))),
         }
     }
 }
@@ -138,7 +138,10 @@ impl TryFrom<&str> for Card {
     fn try_from(s: &str) -> Result<Card, String> {
         let ns = s.len();
         if ns < 2 || ns > 3 {
-            return Err(format!("invalid card description length: {}", s));
+            return Err(format!(
+                "invalid card description length: {}",
+                s
+            ));
         }
         let (rs, ss) = s.split_at(ns - 1);
         let rank = Rank::try_from(rs)?;
